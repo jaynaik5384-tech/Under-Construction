@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head>
+<title>Under Construction</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:#e3f2fd;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:400px;
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.logo{
+    font-size:50px;
+}
+
+h1{
+    color:#1565c0;
+}
+
+p{
+    color:#555;
+}
+
+.timer{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0;
+}
+
+.box{
+    width:70px;
+    padding:10px;
+    background:#1565c0;
+    color:white;
+    border-radius:5px;
+}
+
+.box h2{
+    margin:0;
+}
+
+input{
+    width:70%;
+    padding:10px;
+    margin-top:15px;
+}
+
+button{
+    padding:10px 15px;
+    background:#1565c0;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.footer{
+    margin-top:20px;
+    font-size:14px;
+    color:gray;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo"><img src="logo.png" alt="Company Logo" width="300"></div>
+
+<h1>Website Under Construction</h1>
+
+<p>
+Our website is currently under construction.<br>
+We will launch soon. Stay connected!
+</p>
+
+<div class="timer">
+
+<div class="box">
+<h2 id="days">00</h2>
+<small>Days</small>
+</div>
+
+<div class="box">
+<h2 id="hours">00</h2>
+<small>Hours</small>
+</div>
+
+<div class="box">
+<h2 id="minutes">00</h2>
+<small>Min</small>
+</div>
+
+<div class="box">
+<h2 id="seconds">00</h2>
+<small>Sec</small>
+</div>
+
+</div>
+
+<input type="email" id="email" placeholder="Enter your Email">
+
+<button onclick="subscribe()">Notify</button>
+
+<div class="footer">
+© 2026 My Website
+</div>
+
+</div>
+
+<script>
+
+var launch = new Date("December 31, 2026 12:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+
+var distance = launch - now;
+
+var days = Math.floor(distance/(1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+var seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
+
+},1000);
+
+function subscribe(){
+
+var email = document.getElementById("email").value;
+
+if(email==""){
+    alert("Please enter your email.");
+}
+else{
+    alert("Thank you! We will notify you.");
+    document.getElementById("email").value="";
+}
+
+}
+
+</script>
+
+</body>
+</html>
